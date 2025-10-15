@@ -4,8 +4,6 @@
 + Instructor: *Dr. Attarzadeh*
 + University: Shahid Beheshti University (SBU)
 
----
-
 ## Technologies & Tools
 
 | Layer | Tools & Technologies |
@@ -17,7 +15,6 @@
 | **Visualization / Dashboard** | Grafana, ThingsBoard |
 | **Deployment & Simulation** | Docker, Wokwi |
 
----
 
 ## How to Run
 
