@@ -1,0 +1,7 @@
+{
+  "server": {
+    "endpoint": "opc.tcp://host.docker.internal:4840",
+    "security": "None"
+  },
+  "mapping": []
+}

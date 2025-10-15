@@ -1,0 +1,13 @@
+{"timestamp":"2025-05-02T15:56:34.738956","level":"info","event":"DAG bundles loaded: dags-folder, example_dags","logger":"airflow.dag_processing.bundles.manager.DagBundlesManager"}
+{"timestamp":"2025-05-02T15:56:34.739537","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/iot-ex2-coldpath.py","logger":"airflow.models.dagbag.DagBag"}
+{"timestamp":"2025-05-02T15:56:34.999193Z","level":"info","event":"Task instance is in running state","chan":"stdout","logger":"task"}
+{"timestamp":"2025-05-02T15:56:34.999769Z","level":"info","event":" Previous state of the Task instance: queued","chan":"stdout","logger":"task"}
+{"timestamp":"2025-05-02T15:56:35.000018Z","level":"info","event":"Current task name:compare_and_detect","chan":"stdout","logger":"task"}
+{"timestamp":"2025-05-02T15:56:35.000235Z","level":"info","event":"Dag name:temperature_cold_path","chan":"stdout","logger":"task"}
+{"timestamp":"2025-05-02T15:56:35.000450Z","level":"info","event":"Task instance in success state","chan":"stdout","logger":"task"}
+{"timestamp":"2025-05-02T15:56:35.000661Z","level":"info","event":" Previous state of the Task instance: running","chan":"stdout","logger":"task"}
+{"timestamp":"2025-05-02T15:56:35.000900Z","level":"info","event":"Task operator:<Task(_PythonDecoratedOperator): compare_and_detect>","chan":"stdout","logger":"task"}
+{"timestamp":"2025-05-02T15:56:34.983008","level":"info","event":"Mean A: 5.20, Mean B: 40.00, Diff: 34.80","logger":"root"}
+{"timestamp":"2025-05-02T15:56:34.983146","level":"info","event":"P95 A: 5.20, P95 B: 40.00, Diff: 34.80","logger":"root"}
+{"timestamp":"2025-05-02T15:56:34.983215","level":"info","event":"Difference in means (34.80) is within expected variation (34.80)","logger":"root"}
+{"timestamp":"2025-05-02T15:56:34.983310","level":"info","event":"Done. Returned value was: None","logger":"airflow.task.operators.airflow.providers.standard.decorators.python._PythonDecoratedOperator"}

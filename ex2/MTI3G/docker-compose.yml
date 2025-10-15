@@ -1,0 +1,69 @@
+
+services:
+  mosquitto:
+    image: eclipse-mosquitto:latest
+    ports:
+      - "${MOSQUITTO_PORT:-1883}:1883"
+    volumes:
+      - ./mosquitto/config:/mosquitto/config:rw
+      - ./mosquitto/data:/mosquitto/data:rw
+      - ./mosquitto/log:/mosquitto/log:rw
+    networks:
+      - iot-ex2-net
+
+  influxdb:
+    image: influxdb:3-core
+    command:
+      - influxdb3
+      - serve
+      - --node-id=${INFLUXDB_NODE_ID}
+      - --object-store=file
+      - --data-dir=/var/lib/influxdb3
+    ports:
+      - "${INFLUXDB_HTTP_PORT:-8181}:8181"
+    volumes:
+      - ./influxdb/data:/var/lib/influxdb3:rw
+      - ./influxdb/config:/etc/influxdb3:rw
+    environment:
+      - INFLUXDB3_AUTH_TOKEN=${INFLUXDB_TOKEN}
+      - INFLUXDB_ORG=${INFLUXDB_ORG}
+    networks:
+      - iot-ex2-net
+
+  telegraf:
+    image: telegraf:latest
+    volumes:
+      - ./telegraf/telegraf.conf:/etc/telegraf/telegraf.conf:rw
+    environment:
+      - INFLUXDB_HOST=${INFLUXDB_HOST}
+      - INFLUXDB_HTTP_PORT=${INFLUXDB_HTTP_PORT}
+      - INFLUXDB_TOKEN=${INFLUXDB_TOKEN}
+      - INFLUXDB_ORG=${INFLUXDB_ORG}
+      - INFLUXDB_BUCKET=${INFLUXDB_BUCKET}
+      - MOSQUITTO_HOST=${MOSQUITTO_HOST}
+      - MOSQUITTO_PORT=${MOSQUITTO_PORT}
+      - TELEGRAF_COLLECTION_INTERVAL=${TELEGRAF_COLLECTION_INTERVAL}
+      - HOSTNAME=telegraf
+    depends_on:
+      - influxdb
+      - mosquitto
+    networks:
+      - iot-ex2-net
+
+  grafana:
+    image: grafana/grafana:latest
+    ports:
+      - "${GRAFANA_PORT:-3000}:3000"
+    volumes:
+      - ./grafana/data:/var/lib/grafana
+    environment:
+      - GF_SECURITY_ADMIN_USER=${GRAFANA_ADMIN_USER}
+      - GF_SECURITY_ADMIN_PASSWORD=${GRAFANA_ADMIN_PASSWORD}
+    depends_on:
+      - influxdb
+    networks:
+      - iot-ex2-net
+
+networks:
+  iot-ex2-net:
+    external: true

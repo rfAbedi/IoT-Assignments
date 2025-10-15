@@ -1,0 +1,13 @@
+thingsboard:
+  host: ${TB_GW_HOST}
+  port: ${TB_GW_PORT}
+  security:
+    accessToken: ${TB_GW_ACCESS_TOKEN}
+
+storage:
+  type: memory
+
+connectors:
+  - name: OPC-UA Connector
+    type: opcua
+    configuration: /etc/thingsboard-gateway/config/opc-ua.json

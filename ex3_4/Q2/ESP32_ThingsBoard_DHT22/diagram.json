@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "author": "mohammad nikfallah",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 0, "left": 0, "attrs": {} },
+    { "type": "wokwi-dht22", "id": "dht1", "top": -182.1, "left": 23.4, "attrs": {} }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "dht1:GND", "esp:GND.2", "black", [ "h38.4", "v96" ] ],
+    [ "dht1:VCC", "esp:3V3", "red", [ "h-48", "v96" ] ],
+    [ "esp:15", "dht1:SDA", "green", [ "h14.44", "v-220.8", "h-67.3" ] ]
+  ],
+  "dependencies": {}
+}

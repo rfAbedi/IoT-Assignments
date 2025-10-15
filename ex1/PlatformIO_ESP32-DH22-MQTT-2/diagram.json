@@ -1,0 +1,17 @@
+{
+    "version": 1,
+    "author": "Erfan Abedi",
+    "editor": "wokwi",
+    "parts": [
+      { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": -9.6, "left": 14.44, "attrs": {} },
+      { "type": "wokwi-dht22", "id": "dht1", "top": -114.9, "left": -43.8, "attrs": {} }
+    ],
+    "connections": [
+      [ "esp:TX", "$serialMonitor:RX", "", [] ],
+      [ "esp:RX", "$serialMonitor:TX", "", [] ],
+      [ "dht1:SDA", "esp:15", "green", [ "v211.2", "h153.7", "v-48" ] ],
+      [ "dht1:GND", "esp:GND.1", "black", [ "v0" ] ],
+      [ "dht1:VCC", "esp:3V3", "red", [ "v0" ] ]
+    ],
+    "dependencies": {}
+}

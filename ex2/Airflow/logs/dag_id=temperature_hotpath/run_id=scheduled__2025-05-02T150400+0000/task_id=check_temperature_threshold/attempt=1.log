@@ -1,0 +1,23 @@
+{"timestamp":"2025-05-02T15:04:02.465209","level":"info","event":"DAG bundles loaded: dags-folder, example_dags","logger":"airflow.dag_processing.bundles.manager.DagBundlesManager"}
+{"timestamp":"2025-05-02T15:04:02.465776","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/iot-ex2-hotpath.py","logger":"airflow.models.dagbag.DagBag"}
+{"timestamp":"2025-05-02T15:04:02.651094Z","level":"info","event":"Task instance is in running state","chan":"stdout","logger":"task"}
+{"timestamp":"2025-05-02T15:04:02.651730Z","level":"info","event":" Previous state of the Task instance: queued","chan":"stdout","logger":"task"}
+{"timestamp":"2025-05-02T15:04:02.652007Z","level":"info","event":"Current task name:check_temperature_threshold","chan":"stdout","logger":"task"}
+{"timestamp":"2025-05-02T15:04:02.652275Z","level":"info","event":"Dag name:temperature_hotpath","chan":"stdout","logger":"task"}
+{"timestamp":"2025-05-02T15:04:02.652547Z","level":"info","event":"Task instance in success state","chan":"stdout","logger":"task"}
+{"timestamp":"2025-05-02T15:04:02.652782Z","level":"info","event":" Previous state of the Task instance: running","chan":"stdout","logger":"task"}
+{"timestamp":"2025-05-02T15:04:02.653000Z","level":"info","event":"Task operator:<Task(_PythonDecoratedOperator): check_temperature_threshold>","chan":"stdout","logger":"task"}
+{"timestamp":"2025-05-02T15:04:02.627251","level":"warning","event":"sensor 1 = 5.199999809265137°C at 2025-05-02 15:03:05.899187+00:00 (out of range)","logger":"root"}
+{"timestamp":"2025-05-02T15:04:02.627439","level":"warning","event":"sensor 1 = 5.199999809265137°C at 2025-05-02 15:03:14.718999+00:00 (out of range)","logger":"root"}
+{"timestamp":"2025-05-02T15:04:02.627517","level":"warning","event":"sensor 1 = 5.199999809265137°C at 2025-05-02 15:03:24.952729+00:00 (out of range)","logger":"root"}
+{"timestamp":"2025-05-02T15:04:02.627582","level":"warning","event":"sensor 1 = 5.199999809265137°C at 2025-05-02 15:03:33.970714+00:00 (out of range)","logger":"root"}
+{"timestamp":"2025-05-02T15:04:02.627641","level":"warning","event":"sensor 1 = 5.199999809265137°C at 2025-05-02 15:03:43.403018+00:00 (out of range)","logger":"root"}
+{"timestamp":"2025-05-02T15:04:02.627697","level":"warning","event":"sensor 1 = 5.199999809265137°C at 2025-05-02 15:03:50.019142+00:00 (out of range)","logger":"root"}
+{"timestamp":"2025-05-02T15:04:02.627750","level":"warning","event":"sensor 1 = 5.199999809265137°C at 2025-05-02 15:03:56.414392+00:00 (out of range)","logger":"root"}
+{"timestamp":"2025-05-02T15:04:02.627804","level":"warning","event":"sensor 2 = 40.0°C at 2025-05-02 15:03:08.510943+00:00 (out of range)","logger":"root"}
+{"timestamp":"2025-05-02T15:04:02.627858","level":"warning","event":"sensor 2 = 40.0°C at 2025-05-02 15:03:17.887293+00:00 (out of range)","logger":"root"}
+{"timestamp":"2025-05-02T15:04:02.627912","level":"warning","event":"sensor 2 = 40.0°C at 2025-05-02 15:03:28.116591+00:00 (out of range)","logger":"root"}
+{"timestamp":"2025-05-02T15:04:02.627963","level":"warning","event":"sensor 2 = 40.0°C at 2025-05-02 15:03:36.862105+00:00 (out of range)","logger":"root"}
+{"timestamp":"2025-05-02T15:04:02.628014","level":"warning","event":"sensor 2 = 40.0°C at 2025-05-02 15:03:45.642474+00:00 (out of range)","logger":"root"}
+{"timestamp":"2025-05-02T15:04:02.628065","level":"warning","event":"sensor 2 = 40.0°C at 2025-05-02 15:03:51.962830+00:00 (out of range)","logger":"root"}
+{"timestamp":"2025-05-02T15:04:02.628881","level":"info","event":"Done. Returned value was: None","logger":"airflow.task.operators.airflow.providers.standard.decorators.python._PythonDecoratedOperator"}

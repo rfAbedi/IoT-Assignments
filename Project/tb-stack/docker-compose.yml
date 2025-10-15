@@ -1,0 +1,72 @@
+services:
+  postgres:
+    restart: always
+    image: "postgres:16"
+    ports:
+      - "5432"
+    environment:
+      POSTGRES_DB: thingsboard
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+  thingsboard-ce:
+    restart: always
+    image: "thingsboard/tb-node:4.2.0"
+    ports:
+      - "8080:8080"
+      - "7070:7070"
+      - "1883:1883"
+      - "8883:8883"
+      - "5683-5688:5683-5688/udp"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "100m"
+        max-file: "10"
+    environment:
+      TB_SERVICE_ID: tb-ce-node
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/thingsboard
+    depends_on:
+      - postgres
+
+  tb-gateway:
+    image: thingsboard/tb-gateway:3.7-stable
+    container_name: tb-gateway
+    restart: always
+
+    # Ports bindings - required by some connectors
+    ports:
+        - "5000:5000" # Comment if you don't use REST connector and change if you use another port
+        # Uncomment and modify the following ports based on connector usage:
+#        - "1052:1052" # BACnet connector
+#        - "5026:5026" # Modbus TCP connector (Modbus Slave)
+#        - "50000:50000/tcp" # Socket connector with type TCP
+#        - "50000:50000/udp" # Socket connector with type UDP
+
+    # Necessary mapping for Linux
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+    # Environment variables
+    environment:
+      - host=host.docker.internal
+      - port=1883
+      - accessToken=saq7IjaFsmdQdPJqOEYt
+
+    # Volumes bind
+    volumes:
+      - tb-gw-config:/thingsboard_gateway/config
+      - tb-gw-logs:/thingsboard_gateway/logs
+      - tb-gw-extensions:/thingsboard_gateway/extensions
+
+# Volumes declaration for configurations, extensions and configuration
+volumes:
+  tb-gw-config:
+    name: tb-gw-config
+  tb-gw-logs:
+    name: tb-gw-logs
+  tb-gw-extensions:
+    name: tb-gw-extensions
+  postgres-data:
+    name: tb-postgres-data
+    driver: local

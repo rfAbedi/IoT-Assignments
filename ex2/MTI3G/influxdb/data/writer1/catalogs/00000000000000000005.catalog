@@ -1,0 +1,1 @@
+idb3.002.l(P“¨{"catalog_batch":{"Node":{"time_ns":1746191491867005841,"node_catalog_id":0,"node_id":"writer1","ops":[{"RegisterNode":{"node_id":"writer1","instance_id":"cebf186a-cb2e-4d86-a7f9-e67c8bf931e0","registered_time_ns":1746191491867005841,"core_count":16,"mode":["Core"]}}]}},"sequence_number":5}

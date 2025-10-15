@@ -1,0 +1,32 @@
+services:
+  tb:
+    image: thingsboard/tb-postgres
+    restart: always
+    ports:
+      - "8080:9090"
+      - "1883:1883"
+      - "5683:5683/udp"
+    environment:
+      TB_QUEUE_TYPE: in-memory
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/thingsboard
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: postgres
+      SECURITY_CLAIM_ALLOW_CLAIMING_BY_DEFAULT: "true"
+      SECURITY_OAUTH2_ENABLED: "false"
+      TB_SKIP_INSTALL: "false"
+      JAVA_OPTS: "-Xms256M -Xmx512M"
+    depends_on:
+      - postgres
+
+  postgres:
+    image: postgres:12
+    restart: always
+    environment:
+      POSTGRES_DB: thingsboard
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: postgres
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+
+volumes:
+  pg_data:
