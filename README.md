@@ -1,7 +1,7 @@
 # IoT-Assignments
 
 + Assignments for **IoT**
-+ Instructor: *Dr. attarzadeh*
++ Instructor: *Dr. Attarzadeh*
 + University: Shahid Beheshti University (SBU)
 
 ---
