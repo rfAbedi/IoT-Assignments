@@ -1,6 +1,8 @@
 # IoT-Assignments
 
-This repository contains the assignments and mini-projects focused on **Internet of Things (IoT)** course — from embedded device programming to cloud-level data processing and visualization.  
+Assignments for **IoT**
+Instructor: *Dr. attarzadeh*
+University: Shahid Beheshti University (SBU)
 
 ---
 
